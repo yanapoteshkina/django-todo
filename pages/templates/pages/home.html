@@ -1,0 +1,29 @@
+{% extends 'pages/base.html' %}
+
+
+{% block content %}
+
+
+<div class="row row-cols-1 row-cols-md-3 mb-3 ">
+
+    {% for post in all_posts_list %}
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card-header py-3">
+          <h5 class="my-0 fw-normal  ">{{ post.author }}</h5>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">{{ post.title }}</h1>
+          <p class="text-justify">
+            {{ post.body }}
+          </p>
+          <button type="button" class="w-100 btn btn-lg btn-outline-primary"><a href="{% url 'post_detail' post.pk %}">Читать</a></button>
+        </div>
+      </div>
+    </div>
+ 
+{% endfor %}
+
+  </div>
+
+{% endblock content %}
